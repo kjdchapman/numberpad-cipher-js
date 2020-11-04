@@ -1,0 +1,39 @@
+Numberpad cipher is an algorithm that encrypts and decrypts strings of non-zero
+digits.
+
+It is easiest understood by visualising a number pad with the following layout:
+
+7 8 9
+4 5 6
+1 2 3
+The input string is translated digit by digit from left to right, and at
+each step we consider in which direction we need to move on the number pad
+to get from the current digit to the next. For example, a 5 followed by a 6,
+means moving to the right. We wrap around the edges of the number pad when
+necessary, so a 7 followed by a 9 means moving to the left. Each digit on
+the number pad corresponds to a direction of movement as follows:
+
+↖ ↑ ↗
+← o →
+↙ ↓ ↘
+So a 1 is a down-left diagonal movement, 2 is down, etc. A 5 means no movement.
+For the first digit to encode, we assume that we start on position 1.
+As an example, let's see what we get for the following string:
+
+2583
+
+To move from 1 (the starting position) to 2, we need to go right, i.e. 6.
+To move from 2 to 5 we need to go up, i.e. 8.
+5 to 8 is up again, that is 8.
+To move from 8 to 3 we need to wrap around the top of the number pad and go
+up-right, that is 9.
+So the encrypted string is
+
+6889
+
+To decrypt this string again, we start at position 1 and interpret each digit
+in the input string as a direction telling us where to go from the current
+position (you can check that, starting from 6889, this will take us back to 2583).
+
+Implement the Encrypt() and Decrypt() methods. The input will always be a
+string of digits between 1 and 9 (no zeroes).
