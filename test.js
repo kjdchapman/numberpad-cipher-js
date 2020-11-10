@@ -61,15 +61,14 @@ const encrypt = (input) => {
   if (input[0] == "1") {
     output += "5"
 
-    if (input[1] == "1") output += "5"
-    if (input[1] == "2") output += "6"
-    if (input[1] == "3") output += "4"
-    if (input[1] == "4") output += "8"
-    if (input[1] == "5") output += "9"
-    if (input[1] == "6") output += "7"
-    if (input[1] == "7") output += "2"
-    if (input[1] == "8") output += "3"
-    if (input[1] == "9") output += "1"
+    let oneEncoder = new Map([
+      ["1","5"],["2","6"],["3","4"],
+      ["4","8"],["5","9"],["6","7"],
+      ["7","2"],["8","3"],["9","1"]
+      ]);
+    if (input[1]) {
+      output += oneEncoder.get(input[1])
+    }
   }
 
   if (input == "22") output = "65"
