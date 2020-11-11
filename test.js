@@ -46,6 +46,10 @@ describe('Encryption', () => {
     assert.equal(encrypt("22"), "65")
   })
 
+  it('returns 4 when given 3', () => {
+    assert.equal(encrypt("3"), "4")
+  })
+
 })
 
 describe('Decryption', () => {
@@ -58,8 +62,15 @@ describe('Decryption', () => {
 const encrypt = (input) => {
   var output = ""
 
+  var firstEncoder = new Map([
+      ["1","5"],["2","6"],["3","4"],
+      ["4","8"],["5","9"],["6","7"],
+      ["7","2"],["8","3"],["9","1"]
+    ]);
+  if (input[0]) {
+    output += firstEncoder.get(input[0])
+  }
   if (input[0] == "1") {
-    output += "5"
 
     let oneEncoder = new Map([
       ["1","5"],["2","6"],["3","4"],
@@ -73,7 +84,6 @@ const encrypt = (input) => {
   }
 
   if (input[0] == "2") {
-    output += "6"
 
     let twoEncoder = new Map([
       ["1","4"],["2","5"],["3","6"],
