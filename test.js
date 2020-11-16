@@ -90,6 +90,9 @@ describe('Small Encryption', () => {
   it('returns 11 when given 32', () => {
     assert.equal(numberpadCipher.smallEncrypt("32"), "11")
   })
+  it('returns 233211 when given 123321', () => {
+    assert.equal(numberpadCipher.smallEncrypt("123321"), "233211")
+  })
 })
 
 describe('Decryption', () => {
