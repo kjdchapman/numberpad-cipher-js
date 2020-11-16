@@ -20,6 +20,11 @@ exports.encrypt = (input) => {
     if (input[1]) {
       output += oneEncoder.get(input[1])
     }
+
+    if (input[2] == "3") {
+
+      output += 6
+    }
   }
 
   if (input[0] == "2") {
@@ -32,6 +37,34 @@ exports.encrypt = (input) => {
 
     if (input[1]) {
       output += twoEncoder.get(input[1])
+    }
+  }
+
+  return output
+}
+
+exports.smallEncrypt = (input) => {
+  output = ""
+
+  onePositionEncoder = new Map([
+    ["1","2"],["2","3"],["3","1"]
+    ]);
+
+  twoPositionEncoder = new Map([
+    ["1","1"],["2","2"],["3","3"]
+    ]);
+
+  threePositionEncoder = new Map([
+    ["1","3"],["2","1"],["3","2"]
+    ]);
+
+  if (input[0]) {
+    output += onePositionEncoder.get(input[0])
+  }
+
+  if (input[1]) {
+    if (input[0] == "1") {
+      output += onePositionEncoder.get(input[1])
     }
   }
 
