@@ -66,6 +66,12 @@ exports.smallEncrypt = (input) => {
     if (input[0] == "1") {
       output += onePositionEncoder.get(input[1])
     }
+    if (input[0] == "2") {
+      output += twoPositionEncoder.get(input[1])
+    }
+    if (input[0] == "3") {
+      output += threePositionEncoder.get(input[1])
+    }
   }
 
   return output
