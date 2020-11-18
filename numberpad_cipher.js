@@ -46,16 +46,23 @@ exports.encrypt = (input) => {
 exports.smallEncrypt = (input) => {
   output = ""
 
+  var left = "1"
+  var nomove = "2"
+  var right = "3"
+
+  var one = 1
   onePositionEncoder = new Map([
-    ["1","2"],["2","3"],["3","1"]
+    [one.toString(),nomove],[(one + 1).toString(),right],[(one + 2).toString(),left]
     ]);
 
+  var two = 2
   twoPositionEncoder = new Map([
-    ["1","1"],["2","2"],["3","3"]
+    [(two - 1).toString(),left],[two.toString(),nomove],[(two + 1).toString(),right]
     ]);
 
+  var three = 3
   threePositionEncoder = new Map([
-    ["1","3"],["2","1"],["3","2"]
+    [(three - 2).toString(),right],[(three - 1).toString(),left],[three.toString(),nomove]
     ]);
 
   if (input[0]) {
