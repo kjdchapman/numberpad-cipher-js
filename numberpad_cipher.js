@@ -45,24 +45,26 @@ exports.encrypt = (input) => {
 
 exports.smallEncrypt = (input) => {
   output = ""
+  numberpad = ["1","2","3"]
+  const mod = (x, n) => (x % n + n) % n
 
   var left = "1"
   var nomove = "2"
   var right = "3"
 
-  var one = 1
+  var one = numberpad.indexOf("1");
   onePositionEncoder = new Map([
-    [one.toString(),nomove],[(one + 1).toString(),right],[(one + 2).toString(),left]
+    [numberpad[one],nomove],[numberpad[(one + 1)],right],[numberpad[mod((one - 1),3)],left]
     ]);
 
-  var two = 2
+  var two = numberpad.indexOf("2");
   twoPositionEncoder = new Map([
-    [(two - 1).toString(),left],[two.toString(),nomove],[(two + 1).toString(),right]
+    [numberpad[(two - 1)],left],[numberpad[two],nomove],[numberpad[(two + 1)],right]
     ]);
 
-  var three = 3
+  var three = numberpad.indexOf("3");
   threePositionEncoder = new Map([
-    [(three - 2).toString(),right],[(three - 1).toString(),left],[three.toString(),nomove]
+    [numberpad[mod((three + 1),3)],right],[numberpad[(three - 1)],left],[numberpad[three],nomove]
     ]);
 
   if (input[0]) {
