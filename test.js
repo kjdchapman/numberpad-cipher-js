@@ -1,5 +1,6 @@
 var assert = require('assert')
 const numberpadCipher = require("./numberpad_cipher.js")
+const smallNumberpadCipher = require("./123_numberpad_cipher.js")
 
 describe('Encryption', () => {
   subject = numberpadCipher.encrypt
@@ -64,34 +65,34 @@ describe('Encryption', () => {
 
 describe('Small Encryption', () => {
   it('returns empty string when given empty string', () => {
-    assert.equal(numberpadCipher.smallEncrypt(""), "")
+    assert.equal(smallNumberpadCipher.smallEncrypt(""), "")
   })
   it('returns 2 when given 1', () => {
-    assert.equal(numberpadCipher.smallEncrypt("1"), "2")
+    assert.equal(smallNumberpadCipher.smallEncrypt("1"), "2")
   })
   it('returns 3 when given 2', () => {
-    assert.equal(numberpadCipher.smallEncrypt("2"), "3")
+    assert.equal(smallNumberpadCipher.smallEncrypt("2"), "3")
   })
   it('returns 1 when given 3', () => {
-    assert.equal(numberpadCipher.smallEncrypt("3"), "1")
+    assert.equal(smallNumberpadCipher.smallEncrypt("3"), "1")
   })
   it('returns 23 when given 12', () => {
-    assert.equal(numberpadCipher.smallEncrypt("12"), "23")
+    assert.equal(smallNumberpadCipher.smallEncrypt("12"), "23")
   })
   it('returns 21 when given 13', () => {
-    assert.equal(numberpadCipher.smallEncrypt("13"), "21")
+    assert.equal(smallNumberpadCipher.smallEncrypt("13"), "21")
   })
   it('returns 32 when given 22', () => {
-    assert.equal(numberpadCipher.smallEncrypt("22"), "32")
+    assert.equal(smallNumberpadCipher.smallEncrypt("22"), "32")
   })
   it('returns 33 when given 23', () => {
-    assert.equal(numberpadCipher.smallEncrypt("23"), "33")
+    assert.equal(smallNumberpadCipher.smallEncrypt("23"), "33")
   })
   it('returns 11 when given 32', () => {
-    assert.equal(numberpadCipher.smallEncrypt("32"), "11")
+    assert.equal(smallNumberpadCipher.smallEncrypt("32"), "11")
   })
   it('returns 233211 when given 123321', () => {
-    assert.equal(numberpadCipher.smallEncrypt("123321"), "233211")
+    assert.equal(smallNumberpadCipher.smallEncrypt("123321"), "233211")
   })
 })
 
