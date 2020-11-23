@@ -52,39 +52,26 @@ exports.smallEncrypt = (input) => {
   var nomove = "2"
   var right = "3"
 
-  var one = numberpad.indexOf("1");
-  onePositionEncoder = new Map([
-    [numberpad[one],nomove],[numberpad[(one + 1)],right],[numberpad[mod((one - 1),3)],left]
-    ]);
+  encoder = (startingPostion, endPosition) => {
+    var number = numberpad.indexOf(startingPostion);
 
-  var two = numberpad.indexOf("2");
-  twoPositionEncoder = new Map([
-    [numberpad[(two - 1)],left],[numberpad[two],nomove],[numberpad[(two + 1)],right]
-    ]);
+    postionEnconder = new Map([
+      [numberpad[mod((number + 1),3)],right],
+      [numberpad[mod((number - 1),3)],left],
+      [numberpad[number],nomove]
+      ]);
 
-  var three = numberpad.indexOf("3");
-  threePositionEncoder = new Map([
-    [numberpad[mod((three + 1),3)],right],[numberpad[(three - 1)],left],[numberpad[three],nomove]
-    ]);
+    return postionEnconder.get(endPosition)
+  }
 
   if (input[0]) {
-    output += onePositionEncoder.get(input[0])
+    output += encoder("1",input[0])
   }
 
   i = 0
-  while (i < input.length) {
+  while (i < input.length - 1) {
 
-    if (input[i+1]) {
-      if (input[i] == "1") {
-        output += onePositionEncoder.get(input[i+1])
-      }
-      if (input[i] == "2") {
-        output += twoPositionEncoder.get(input[i+1])
-      }
-      if (input[i] == "3") {
-        output += threePositionEncoder.get(input[i+1])
-      }
-    }
+    output += encoder(input[i],input[i + 1])
 
     i++
   }
