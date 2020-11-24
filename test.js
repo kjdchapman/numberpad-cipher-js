@@ -14,22 +14,22 @@ describe('Encryption', () => {
     it('returns 54 when given 13', () => {
       assert.equal(subject("13"), "54")
     })
-    it('returns 58 when given 14', () => {
+    xit('returns 58 when given 14', () => {
       assert.equal(subject("14"), "58")
     })
-    it('returns 59 when given 15', () => {
+    xit('returns 59 when given 15', () => {
       assert.equal(subject("15"), "59")
     })
-    it('returns 57 when given 16', () => {
+    xit('returns 57 when given 16', () => {
       assert.equal(subject("16"), "57")
     })
-    it('returns 52 when given 17', () => {
+    xit('returns 52 when given 17', () => {
       assert.equal(subject("17"), "52")
     })
-    it('returns 53 when given 18', () => {
+    xit('returns 53 when given 18', () => {
       assert.equal(subject("18"), "53")
     })
-    it('returns 51 when given 19', () => {
+    xit('returns 51 when given 19', () => {
       assert.equal(subject("19"), "51")
     })
   })
