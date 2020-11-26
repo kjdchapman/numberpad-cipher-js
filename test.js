@@ -14,13 +14,13 @@ describe('Encryption', () => {
     it('returns 54 when given 13', () => {
       assert.equal(subject("13"), "54")
     })
-    xit('returns 58 when given 14', () => {
+    it('returns 58 when given 14', () => {
       assert.equal(subject("14"), "58")
     })
-    xit('returns 59 when given 15', () => {
+    it('returns 59 when given 15', () => {
       assert.equal(subject("15"), "59")
     })
-    xit('returns 57 when given 16', () => {
+    it('returns 57 when given 16', () => {
       assert.equal(subject("16"), "57")
     })
     xit('returns 52 when given 17', () => {

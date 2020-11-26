@@ -1,10 +1,13 @@
 exports.encrypt = (input) => {
+
   var output = ""
+
   var numberpad = ["1","2","3","4","5","6","7","8","9"]
-  const letWrapAround = (x) => {
-    var n = 3
+
+  const letWrapAround = (x,n) => {
     return (x % n + n) % n
   }
+
 
   var downLeft = "1"
   var down = "2"
@@ -12,17 +15,20 @@ exports.encrypt = (input) => {
   var left = "4"
   var nomove = "5"
   var right = "6"
-  var upleft = "7"
+  var upLeft = "7"
   var up = "8"
   var upRight = "9"
 
-  encodeByMove = (startingPostion, endPosition) => {
-    var startingIndex = numberpad.indexOf(startingPostion);
+  encodeByMove = (startingPosition, endPosition) => {
+    var startingIndex = numberpad.indexOf(startingPosition);
 
     postionEnconder = new Map([
-      [numberpad[letWrapAround(startingIndex + 1)],right],
-      [numberpad[letWrapAround(startingIndex - 1)],left],
-      [numberpad[startingIndex],nomove]
+      [numberpad[letWrapAround(startingIndex + 1,3)],right],
+      [numberpad[letWrapAround(startingIndex - 1,3)],left],
+      [numberpad[startingIndex],nomove],
+      [numberpad[letWrapAround(letWrapAround(startingIndex + 1,3) + 3,9)],upRight],
+      [numberpad[letWrapAround(letWrapAround(startingIndex - 1,3) + 3,9)],upLeft],
+      [numberpad[letWrapAround(startingIndex + 3,9)],up]
       ]);
 
     return postionEnconder.get(endPosition)
