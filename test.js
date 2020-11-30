@@ -57,8 +57,24 @@ describe('Encryption', () => {
       assert.equal(subject("123"), "566")
   })
 
-  xit('returns 545 when given 133', () => {
+  it('returns 545 when given 133', () => {
       assert.equal(subject("133"), "545")
+  })
+
+  it('returns 88 when given 47', () => {
+      assert.equal(subject("47"), "88")
+  })
+
+  it('returns 84 when given 46', () => {
+      assert.equal(subject("46"), "84")
+  })
+
+  xit('returns 87 when given 49', () => {
+      assert.equal(subject("49"), "87")
+  })
+
+  xit('returns 566966966 when given 123456789', () => {
+      assert.equal(subject("123456789"), "566966966")
   })
 
 })
