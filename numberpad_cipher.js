@@ -22,16 +22,23 @@ exports.encrypt = (input) => {
   encodeByMove = (startingPosition, endPosition) => {
     var startingIndex = numberpad.indexOf(startingPosition);
 
+    row = Math.floor(startingIndex / 3)
+    column = startingIndex % 3
+
     postionEnconder = new Map([
-      [numberpad[letWrapAround(startingIndex + 1,3)],right],
-      [numberpad[letWrapAround(startingIndex - 1,3)],left],
+      [numberpad[letWrapAround(column + 1,3) + 3 * row],right],
+      [numberpad[letWrapAround(column - 1,3) + 3 * row],left],
       [numberpad[startingIndex],nomove],
-      [numberpad[letWrapAround(letWrapAround(startingIndex + 1,3) + 3,9)],upRight],
-      [numberpad[letWrapAround(letWrapAround(startingIndex - 1,3) + 3,9)],upLeft],
-      [numberpad[letWrapAround(startingIndex + 3,9)],up]
+      [numberpad[letWrapAround(letWrapAround(column + 1,3) + 3 * (row + 1),9)],upRight],
+      [numberpad[letWrapAround(letWrapAround(column - 1,3) + 3 * (row + 1),9)],upLeft],
+      [numberpad[letWrapAround(startingIndex + 3,9)],up],
+      [numberpad[letWrapAround(letWrapAround(column + 1,3) + 3 * (row - 1),9)],downRight],
+      [numberpad[letWrapAround(letWrapAround(column - 1,3) + 3 * (row - 1),9)],downLeft],
+      [numberpad[letWrapAround(startingIndex - 3,9)],down]
+
       ]);
 
-    return postionEnconder.get(endPosition)
+    return  postionEnconder.get(endPosition)
   }
 
   if (input[0]) {

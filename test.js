@@ -23,13 +23,13 @@ describe('Encryption', () => {
     it('returns 57 when given 16', () => {
       assert.equal(subject("16"), "57")
     })
-    xit('returns 52 when given 17', () => {
+    it('returns 52 when given 17', () => {
       assert.equal(subject("17"), "52")
     })
-    xit('returns 53 when given 18', () => {
+    it('returns 53 when given 18', () => {
       assert.equal(subject("18"), "53")
     })
-    xit('returns 51 when given 19', () => {
+    it('returns 51 when given 19', () => {
       assert.equal(subject("19"), "51")
     })
   })
@@ -57,8 +57,24 @@ describe('Encryption', () => {
       assert.equal(subject("123"), "566")
   })
 
-  xit('returns 545 when given 133', () => {
+  it('returns 545 when given 133', () => {
       assert.equal(subject("133"), "545")
+  })
+
+  it('returns 88 when given 47', () => {
+      assert.equal(subject("47"), "88")
+  })
+
+  it('returns 84 when given 46', () => {
+      assert.equal(subject("46"), "84")
+  })
+
+  xit('returns 87 when given 49', () => {
+      assert.equal(subject("49"), "87")
+  })
+
+  xit('returns 566966966 when given 123456789', () => {
+      assert.equal(subject("123456789"), "566966966")
   })
 
 })
