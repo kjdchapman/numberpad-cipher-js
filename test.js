@@ -69,12 +69,16 @@ describe('Encryption', () => {
       assert.equal(subject("46"), "84")
   })
 
-  xit('returns 87 when given 49', () => {
+  it('returns 87 when given 49', () => {
       assert.equal(subject("49"), "87")
   })
 
-  xit('returns 566966966 when given 123456789', () => {
+  it('returns 566966966 when given 123456789', () => {
       assert.equal(subject("123456789"), "566966966")
+  })
+
+  it('returns 144144144 when given 987654321', () => {
+      assert.equal(subject("987654321"), "144144144")
   })
 
 })
@@ -115,6 +119,30 @@ describe('Small Encryption', () => {
 describe('Decryption', () => {
   it('returns empty string when given empty string', () => {
     assert.equal(numberpadCipher.decrypt(""), "")
+  })
+
+  it('returns 1 for 5', () => {
+    assert.equal(numberpadCipher.decrypt("5"), "1")
+  })
+
+  it('returns 2 for 6', () => {
+    assert.equal(numberpadCipher.decrypt("6"), "2")
+  })
+
+  it('returns 4 for 8', () => {
+    assert.equal(numberpadCipher.decrypt("8"), "4")
+  })
+
+  it('returns 12 for 56', () => {
+    assert.equal(numberpadCipher.decrypt("56"), "12")
+  })
+
+  it('returns 12345 for 56696', () => {
+    assert.equal(numberpadCipher.decrypt("56696"), "12345")
+  })
+
+  it('returns 7429877789 for 2233445566', () => {
+    assert.equal(numberpadCipher.decrypt("2233445566"), "7429877789")
   })
 })
 
